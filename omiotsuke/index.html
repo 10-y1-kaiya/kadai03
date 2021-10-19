@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- リセットcss読み込み -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- style.css読み込み -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- jquery読み込み -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>味噌汁</title>
+</head>
+<body>
+    <!-- タイトルエリア -->
+    <div class="main">
+        <h1 class="title">味噌汁</h1>
+    </div>
+
+    <!-- 味噌汁を選ぶボタン -->
+    <div class="erabu">
+        <p>＼みそ汁の具をランダムにおすすめします。ボタンを押してください／</p>
+        <button class="erabubutton">みそ汁の具を選ぶ</button>
+    </div>
+
+    <!-- 結果表示エリア -->
+    <div class="result">
+       <h2 class="text">今日のあなたにおすすめのみそ汁は・・・</h2>
+       <!-- <p class="result-img"></p> -->
+       <div class="result-text"></div>
+    </div>
+
+    <div class="result">
+        <h2 class="text">履歴</h2>
+        <p>入れてみたくなった具はありましたか？</p>
+        <table id="list">
+            <!-- ここに追加データが挿入される -->
+        </table>
+     </div>
+
+<!-- ここからjs -->
+<script>
+     //クリックイベント 選ぶボタンが押されたら実行
+    $(".erabubutton").on("click",function(){
+        console.log("選ぶボタンが押されました");
+
+        let num= [];
+
+        //具の配列を野菜っぽいものと肉っぽいものにわけて格納
+        let gu =[
+            ["わかめ","ねぎ","油揚げ","豆腐","えのき","じゃがいも","たまねぎ","しいたけ","ごぼう","きゃべつ"],
+            ["なっとう","シーチキン","厚揚げ","コーン","たまご","鶏肉","お麩","豚肉","ちくわ","あさり"]
+            ];
+
+        for( let i=0; i<2; i++ ){ 
+            console.log( "★"+i +"回目"); // 変数iに代入されてる値を表示
+
+            num[i] =Math.floor(Math.random()*10);
+            console.log(num[i]+"を変数に格納しました");
+
+            //データをローカルストレージに保管する
+            localStorage.setItem(i,gu[i][num[i]]);
+            console.log(gu[i][num[i]]+"をLocalstrageに格納しました");
+
+             }
+
+        //結果表示
+        $('.result-text').html(localStorage.getItem(0)+"と"+localStorage.getItem(1));
+        console.log(localStorage.getItem(0)+"と"+localStorage.getItem(1)+"をおすすめしました")
+
+        //データをブラウザに表示する処理
+        const html = `
+            <tr>
+                <th>${localStorage.getItem(0)}</th>
+                <th>${localStorage.getItem(1)}</th>
+            </tr>`;
+        $("#list").append(html);
+
+    }); 
+</script>
+</body>
+</html>

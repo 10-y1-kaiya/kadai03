@@ -1,0 +1,92 @@
+@charset "utf-8";
+img {
+    height: 100%;
+}
+
+.main {
+    width: 100%;
+    height: 80px;
+    background-color:#8fbc8f;
+}
+
+.title {
+    color: cornsilk;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.text {
+    font-size: 2.3rem;
+    font-weight: bold;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #2f4f4f;
+}
+
+.result {
+    width: 100%;
+    height: 250px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.result-img {
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.result-text {
+    font-size: 2.3rem;
+    font-weight: bold;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+
+/* 味噌汁の具を選ぶボタン */
+.erabu{
+    text-align: center;
+    padding: 10px;
+    margin-top:10px;
+}
+.erabubutton{
+    margin-top: 8px;
+    text-align: center;
+    color: cornsilk;
+    font-size: 3em; /* フォントサイズ */
+    background-color: #8fbc8f; /* 背景色 */
+    border-radius: 6px; /* 角の丸み */
+    border: 0; /* 枠線を消す */
+    transition: 0.3s; /* ホバーの変化を滑らかに */
+}
+
+.erabubutton:hover {
+    opacity:0.5;
+    cursor: pointer;
+}
+
+/* 保存テーブル */
+table {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+    text-align: center;
+    border: 1px solid #587458;
+    width: 60%;
+  }
+  th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 30%;
+    font-size: 25px;
+    background-color: #b1c0b1;
+    border-bottom: 1px solid #587458;
+  }
+  /* td {
+    font-size: 16px;
+    background-color: rgb(241, 239, 239);
+    border-bottom: 1px solid #8dc3f5;
+  } */
